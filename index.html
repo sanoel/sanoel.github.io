@@ -1,1 +1,31 @@
-Hello Worasdfld
+<html>
+<head>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript">
+google.load("visualization", '1', {packages:['corechart']});
+google.setOnLoadCallback(drawChart);
+function drawChart() {
+  var query = new google.visualization.Query(
+      'https://docs.google.com/spreadsheets/12roNN8tNqX1s0jMg-Om51wqzckUYX9iq0wVDemll2CI/edit#gid=1704005453&range=A23:A');
+  query.send(handleQueryResponse);
+}
+
+function handleQueryResponse(response) {
+  if (response.isError()) {
+    alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+    return;
+  }
+
+  var data = response.getDataTable();
+  var chart = new google.visualization.ColumnChart(document.getElementById('columnchart'));
+  chart.draw(data, { legend: { position: 'none' } });
+}
+</script>
+
+<title>Data from a Spreadsheet</title>
+</head>
+
+<body>
+<span id='columnchart'></span>
+</body>
+</html>

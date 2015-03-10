@@ -6,7 +6,7 @@ google.load("visualization", '1', {packages:['corechart']});
 google.setOnLoadCallback(drawChart);
 function drawChart() {
   var query = new google.visualization.Query(
-      'https://docs.google.com/spreadsheets/d/12roNN8tNqX1s0jMg-Om51wqzckUYX9iq0wVDemll2CI/gviz/tq?range=A23:B');
+      'https://docs.google.com/spreadsheets/12roNN8tNqX1s0jMg-Om51wqzckUYX9iq0wVDemll2CI/edit#gid=1704005453');
   query.send(handleQueryResponse);
 }
 
@@ -17,20 +17,8 @@ function handleQueryResponse(response) {
   }
 
   var data = response.getDataTable();
- 
-  var options = {
-          width: 1000,
-          height: 563,
-          hAxis: {
-            title: 'Time (s)'
-          },
-          vAxis: {
-            title: 'Voltage (V)'
-          }
-        };
-		
-  var chart = new google.visualization.LineChart(document.getElementById('columnchart'));
-  chart.draw(data, options);
+  var chart = new google.visualization.ColumnChart(document.getElementById('columnchart'));
+  chart.draw(data, { legend: { position: 'none' } });
 }
 </script>
 

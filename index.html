@@ -1,10 +1,43 @@
 <html>
 <head>
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+<script src="https://apis.google.com/js/client.js?onload=init"></script>
+
 <script type="text/javascript">
+
+
 google.load("visualization", '1', {packages:['corechart']});
 google.setOnLoadCallback(drawChart);
+
+		
+// function createNewFile(  ) {
+// 	gapi.client.load('drive', 'v2', function() {
+// 		var request = gapi.client.request({
+// 			'path': '/drive/v2/files',
+// 			'method': 'POST',
+// 			'body':{
+// 				"title" : "SoilData_15-03-11_1132_001.xls",
+// 				"mimeType" : "application/excel",
+// 				"description" : "soilMoisture",
+// 				"convert" : "true"
+// 			}
+// 		});
+// 		request.execute(function(resp) { console.log(resp); });
+// 	});
+// }
+
 function drawChart() {
+	
+	var request = gapi.client.drive.files.get({
+	    'fileId': '0B4IUoYeCenkjaXJXdGY1b3N3Szg'
+	});
+	request.execute(function(resp) {
+		console.log('Title: ' + resp.title);
+	    console.log('Description: ' + resp.description);
+	    console.log('MIME type: ' + resp.mimeType);
+	  });
+	
   var query = new google.visualization.Query(
       'https://docs.google.com/spreadsheets/d/12roNN8tNqX1s0jMg-Om51wqzckUYX9iq0wVDemll2CI/gviz/tq?range=A23:B');
   query.send(handleQueryResponse);

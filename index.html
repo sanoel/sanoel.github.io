@@ -10,6 +10,7 @@ var scopes = 'https://www.googleapis.com/auth/drive';
 
 
 function handleClientLoad() {
+	console.log("mkay");
     gapi.client.setApiKey(apiKey);
     window.setTimeout(checkAuth,1);
 }
@@ -40,8 +41,7 @@ function makeApiCall() {
     gapi.client.load('drive', 'v2', makeRequest);   
 }
 
-function makeRequest()
-{
+function makeRequest(){
     var request = gapi.client.drive.files.list({'maxResults': 5 });
 
     request.execute(function(resp) {          

@@ -34,7 +34,7 @@ function drawChart() {
 			console.log('Description: ' + resp.description);
 			console.log('MIME type: ' + resp.mimeType);
 		});
-	}
+	});
 	var query = new google.visualization.Query('https://docs.google.com/spreadsheets/d/12roNN8tNqX1s0jMg-Om51wqzckUYX9iq0wVDemll2CI/gviz/tq?range=A23:B');
 	query.send(handleQueryResponse);
 }

@@ -1,53 +1,45 @@
-     google.load('visualization', '1', {packages: ['corechart']});
+vgoogle.load("visualization", '1', {packages:['corechart']});
 google.setOnLoadCallback(drawChart);
 
 function drawChart() {
+	var request = gapi.client.request({
+	        'path': '/drive/v2/files',
+	        'method': 'GET',
+	        'params': {'maxResults': '1'}
+	});
+	var request = gapi.client.drive.files.get({
+	    'fileId': '0B4IUoYeCenkjaXJXdGY1b3N3Szg'
+	});
+	request.execute(function(resp) {
+		console.log('Title: ' + resp.title);
+	    console.log('Description: ' + resp.description);
+	    console.log('MIME type: ' + resp.mimeType);
+	  });
+	
+  var query = new google.visualization.Query(
+      'https://docs.google.com/spreadsheets/d/12roNN8tNqX1s0jMg-Om51wqzckUYX9iq0wVDemll2CI/gviz/tq?range=A23:B');
+  query.send(handleQueryResponse);
+}
 
-  var data = new google.visualization.DataTable();
-  data.addColumn('number', 'X');
-  data.addColumn('number', 'Dogs');
+function handleQueryResponse(response) {
+  if (response.isError()) {
+    alert('Error in query: ' + response.getMessage() + ' ' + response.getDetailedMessage());
+    return;
+  }
 
-  data.addRows([
-    [0, 0],   [1, 10],  [2, 23],
-    [3, 17],  [4, 18],  [5, 9],
-    [6, 11],  [7, 27],  [8, 33],
-    [9, 40],  [10, 32], [11, 35],
-    [12, 30], [13, 40], [14, 42],
-    [15, 47], [16, 44], [17, 48],
-    [18, 52], [19, 54], [20, 42],
-    [21, 55], [22, 56], [23, 57],
-    [24, 60], [25, 50], [26, 52],
-    [27, 51], [28, 49], [29, 53],
-    [30, 55], [31, 60], [32, 61],
-    [33, 59], [34, 62], [35, 65],
-    [36, 62], [37, 58], [38, 55],
-    [39, 61], [40, 64], [41, 65],
-    [42, 63], [43, 66], [44, 67],
-    [45, 69], [46, 69], [47, 70],
-    [48, 72], [49, 68], [50, 66],
-    [51, 65], [52, 67], [53, 70],
-    [54, 71], [55, 72], [56, 73],
-    [57, 75], [58, 70], [59, 68],
-    [60, 64], [61, 60], [62, 65],
-    [63, 67], [64, 68], [65, 69],
-    [66, 70], [67, 72], [68, 75],
-    [69, 80]
-  ]);
-
+  var data = response.getDataTable();
+ 
   var options = {
-    width: 1000,
-    height: 563,
-    hAxis: {
-      title: 'Time'
-    },
-    vAxis: {
-      title: 'Popularity'
-    }
-  };
-
-  var chart = new google.visualization.LineChart(
-    document.getElementById('ex0'));
-
+          width: 1000,
+          height: 563,
+          hAxis: {
+            title: 'Time (s)'
+          },
+          vAxis: {
+            title: 'Voltage (V)'
+          }
+        };
+		
+  var chart = new google.visualization.LineChart(document.getElementById('columnchart'));
   chart.draw(data, options);
-
 }

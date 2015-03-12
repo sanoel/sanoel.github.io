@@ -13,7 +13,7 @@ function checkAuth() {
 }
 
 function makeApiCall() {  
-    gapi.client.load('drive', 'v2', function(){
+    gapi.client.load('drive', 'v2').then(function(){
     	var request = gapi.client.drive.files.get({
 			'fileId': '0B4IUoYeCenkjaXJXdGY1b3N3Szg'
 		});

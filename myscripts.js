@@ -13,15 +13,16 @@ function checkAuth() {
 }
 
 function makeApiCall() {  
-    gapi.client.load('drive', 'v2', makeRequest);
-    var request = gapi.client.drive.files.get({
-		'fileId': '0B4IUoYeCenkjaXJXdGY1b3N3Szg'
-	});
-	request.execute(function(resp) {
-		console.log('Title: ' + resp.title);
-		console.log('Description: ' + resp.description);
-		console.log('MIME type: ' + resp.mimeType);
-	});	   
+    gapi.client.load('drive', 'v2', function(){
+    	var request = gapi.client.drive.files.get({
+			'fileId': '0B4IUoYeCenkjaXJXdGY1b3N3Szg'
+		});
+		request.execute(function(resp) {
+			console.log('Title: ' + resp.title);
+			console.log('Description: ' + resp.description);
+			console.log('MIME type: ' + resp.mimeType);
+		});
+    }
 }
 
 		

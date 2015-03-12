@@ -4,6 +4,7 @@ var scopes = 'https://www.googleapis.com/auth/drive';
 
 
 function handleClientLoad() {
+	console.log("something");
     gapi.client.setApiKey(apiKey);
     window.setTimeout(checkAuth,1);
 }

@@ -22,7 +22,7 @@ function makeApiCall() {
 			console.log('Description: ' + resp.description);
 			console.log('MIME type: ' + resp.mimeType);
 		});
-    }
+    });
 }
 
 		

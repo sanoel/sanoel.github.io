@@ -1,5 +1,5 @@
 var clientId = '177980335969-cfretq6m4ms60rtlqpuia36997m24bg6.apps.googleusercontent.com';
-var apiKey = 'AIzaSyBkAjmp2jWnaDdNKgfg_u11CetPKpe9LCg';
+var apiKey = 'AIzaSyCajM1gCGrBm_gyr2_ufHbo768jxuM9QQ8';
 var scopes = 'https://www.googleapis.com/auth/drive';
 
 
@@ -15,7 +15,7 @@ function checkAuth() {
 function makeApiCall() {  
     gapi.client.load('drive', 'v2').then(function(){
     	var request = gapi.client.drive.files.get({
-			'fileId': '0B4IUoYeCenkjek81UUlOM1RIUnM&authuser=0' //0B4IUoYeCenkjaXJXdGY1b3N3Szg
+			'fileId': '0B4IUoYeCenkjek81UUlOM1RIUnM' //0B4IUoYeCenkjaXJXdGY1b3N3Szg
 		});
 		request.execute(function(resp) {
 			console.log('Title: ' + resp.title);

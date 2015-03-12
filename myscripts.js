@@ -1,5 +1,5 @@
-var clientId = '397075051619-vdubn43vg403ec8dbu5q4lateqd3kug9.apps.googleusercontent.com';
-var apiKey = 'AIzaSyCajM1gCGrBm_gyr2_ufHbo768jxuM9QQ8';
+var clientId = '177980335969-cfretq6m4ms60rtlqpuia36997m24bg6.apps.googleusercontent.com';
+var apiKey = 'AIzaSyBkAjmp2jWnaDdNKgfg_u11CetPKpe9LCg';
 var scopes = 'https://www.googleapis.com/auth/drive';
 
 
@@ -9,7 +9,7 @@ function handleClientLoad() {
 }
 
 function checkAuth() {
-    gapi.auth.authorize({client_id: clientId, scope: scopes, immediate: true},makeApiCall());
+    gapi.auth.authorize({client_id: clientId, scope: scopes, immediate: false},makeApiCall());
 }
 
 function makeApiCall() {  

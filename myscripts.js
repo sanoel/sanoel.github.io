@@ -1,5 +1,5 @@
 var clientId = '177980335969-cfretq6m4ms60rtlqpuia36997m24bg6.apps.googleusercontent.com';
-var apiKey = ''; //AIzaSyBkAjmp2jWnaDdNKgfg_u11CetPKpe9LCg
+var apiKey = 'AIzaSyBkAjmp2jWnaDdNKgfg_u11CetPKpe9LCg';
 var scopes = 'https://www.googleapis.com/auth/drive';
 
 

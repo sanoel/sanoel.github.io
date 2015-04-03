@@ -31,7 +31,7 @@ function loadVisualization(){
 }
 
 function drawChart() {
-	var query = new google.visualization.Query('https://docs.google.com/spreadsheets/d/1TPVCGDjMYoNBMqAvgBhq42xOJgXaRRBsHYsoOIbA_cY/gviz/tq?range=A1:B');
+	var query = new google.visualization.Query('https://docs.google.com/spreadsheets/d/1TPVCGDjMYoNBMqAvgBhq42xOJgXaRRBsHYsoOIbA_cY/gviz/tq?Range=A1:B');
 	query.send(handleQueryResponse);
 }
 

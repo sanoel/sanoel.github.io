@@ -15,7 +15,7 @@ function checkAuth() {
 function makeApiCall() {  
     gapi.client.load('drive', 'v2').then(function(){
     	var request = gapi.client.drive.files.get({
-			'fileId': '0B4IUoYeCenkjek81UUlOM1RIUnM' //0B4IUoYeCenkjaXJXdGY1b3N3Szg
+			'fileId': '1TPVCGDjMYoNBMqAvgBhq42xOJgXaRRBsHYsoOIbA_cY' //0B4IUoYeCenkjaXJXdGY1b3N3Szg
 		});
 		request.execute(function(resp) {
 			console.log('Title: ' + resp.title);
@@ -25,29 +25,13 @@ function makeApiCall() {
     });
 }
 
-		
-// function createNewFile(  ) {
-// 	gapi.client.load('drive', 'v2', function() {
-// 		var request = gapi.client.request({
-// 			'path': '/drive/v2/files',
-// 			'method': 'POST',
-// 			'body':{
-// 				"title" : "SoilData_15-03-11_1132_001.xls",
-// 				"mimeType" : "application/excel",
-// 				"description" : "soilMoisture",
-// 				"convert" : "true"
-// 			}
-// 		});
-// 		request.execute(function(resp) { console.log(resp); });
-// 	});
-// }
 function loadVisualization(){
 	google.load("visualization", '1', {packages:['corechart']});
 	google.setOnLoadCallback(drawChart);
 }
 
 function drawChart() {
-	var query = new google.visualization.Query('https://docs.google.com/spreadsheets/d/12roNN8tNqX1s0jMg-Om51wqzckUYX9iq0wVDemll2CI/gviz/tq?range=A23:B');
+	var query = new google.visualization.Query('https://docs.google.com/spreadsheets/d/1TPVCGDjMYoNBMqAvgBhq42xOJgXaRRBsHYsoOIbA_cY/gviz/tq?range=A1:B');
 	query.send(handleQueryResponse);
 }
 

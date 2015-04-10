@@ -17,6 +17,7 @@ function makeApiCall() {
     	var request = gapi.client.drive.files.get({
 		'fileId': '1TPVCGDjMYoNBMqAvgBhq42xOJgXaRRBsHYsoOIbA_cY' //0B4IUoYeCenkjaXJXdGY1b3N3Szg
 	});
+	console.log(request);
 	request.execute(function(resp) {
 		console.log('Title: ' + resp.title);
 		console.log('Description: ' + resp.description);

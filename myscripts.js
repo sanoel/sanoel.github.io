@@ -24,6 +24,7 @@ function makeApiCall() {
 		console.log('MIME type: ' + resp.mimeType);
 	});
     });
+    loadVisualization();
 }
 
 function loadVisualization(){
